@@ -1,24 +1,24 @@
-<h1>{{ title }}</h1>
-<h2>Welcome to Student Register</h2>
-<!-- <router-outlet><app-home></app-home></router-outlet> -->
-
-<section class="sidebar">
-  <ul class="sidebar-menu" data-widget="tree">
-    <li class="header">Keysmart CRM</li>
-    <li><a href="/home"><span>Home</span></a></li>
-    <li><a href="/student"><span>Student</span></a></li>
-    <li><a href="/employee"><span>Employee</span></a></li>
-    <li><a href="/task"><span>Task</span></a></li>
-    <li><a href="/about"><span>About</span></a></li>
-    <li><a href="/contact"><span>Contact</span></a></li>
-  </ul>
-</section>
-
-<!-- =============================================== -->
-
-<div class="content-wrapper">
-<section class="content">
-  <div class="box">
-    <router-outlet></router-outlet>
+<div class="row">
+  <div class="col-md-3">
+    <section class="sidebar">
+      <ul class="sidebar-menu" data-widget="tree">
+        <li class="header" style="padding-top: 30px;"><h4> {{ title }} </h4></li>
+        <li><a href="/home"><span>Home</span></a></li>
+        <li><a href="/student"><span>Student</span></a></li>
+        <li><a href="/employee"><span>Employee</span></a></li>
+        <li><a href="/task"><span>Task</span></a></li>
+        <li><a href="/about"><span>About</span></a></li>
+        <li><a href="/contact"><span>Contact</span></a></li>
+      </ul>
+    </section>
   </div>
-</section>
+  <div class="col-md-9">
+    <div class="content-wrapper">
+      <section class="content">
+        <div class="box">
+          <router-outlet></router-outlet>
+        </div>
+      </section>
+  </div>
+</div>
+
