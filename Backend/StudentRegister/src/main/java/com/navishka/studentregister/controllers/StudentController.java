@@ -30,7 +30,7 @@ public class StudentController {
 		return studentRepository.findById(id).get();
 	}
 	
-	@PostMapping("/customer")
+	@PostMapping("/student")
 	public Student createStudent(Student student) {
 		return studentRepository.save(student);
 	}
