@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { FormControl } from '@angular/forms';
 
 //01. Create an interface for Single object
 export interface Student{
@@ -16,6 +17,11 @@ export interface Student{
   styleUrls: ['./student.component.css']
 })
 export class StudentComponent implements OnInit {
+
+  //a. Create FormControl object per each object
+  name = new FormControl();
+  age = new FormControl();
+  gender = new FormControl();
 
   //02. Create array variable for all objects
   students: Student[]= [];

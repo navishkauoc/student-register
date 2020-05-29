@@ -42,12 +42,15 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor = "let student of students">
-                    <td> {{ student.id }}</td>
-                    <td> {{ student.name }}</td>
-                    <td> {{ student.age }}</td>
-                    <td> {{ student.gender }}</td>
-                    <td> <button class="btn btn-info" style="margin-right: 10px;"> Edit </button><button class="btn btn-danger"> Delete </button> </td>
+                  <tr *ngFor = "let studentContact of studentContacts">
+                    <td> {{ studentContact.student.name }} </td> 
+                    <td> {{ studentContact.mobile }}</td>
+                    <td> {{ studentContact.address }}</td>
+                    <td> {{ studentContact.email }}</td>
+                    <td> 
+                        <button class="btn btn-info" style="margin-right: 10px;"> Edit </button>
+                        <button class="btn btn-danger"> Delete </button>
+                    </td>
                   </tr>
                 </tbody>
             </table>
