@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { FormControl } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 //01. Create an interface for Single object
 export interface Student{
@@ -31,12 +32,42 @@ export class StudentComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+    
     //04. Load data from URL
     var url= "http://localhost:8080/students";
     this.http.get<Student[]>(url)
     .subscribe(data=>{
       this.students= data;
-    })
+    });
+  }
+
+  loadAll(): void{
+    //04. Load data from URL
+    var url= "http://localhost:8080/students";
+    this.http.get<Student[]>(url)
+    .subscribe(data=>{
+      this.students= data;
+    });
+  }
+
+  // c. Create save function for save operation
+  save(){
+    //d. Collect form data
+    let body = new HttpParams({
+      fromObject: {
+        'name': this.name.value,
+        'age': this.age.value,
+        'gender': this.gender.value
+      }
+    });
+
+    //e. Pass to the URL
+    this.http.post<any> ('http://localhost:8080/student', body)
+    .subscribe(data=>{
+      console.log(data);
+      this.loadAll();
+      Swal.fire('Successfully Saved!');
+    });
   }
 
   
