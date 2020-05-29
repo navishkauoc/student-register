@@ -25,7 +25,7 @@ export class StudentComponent implements OnInit {
 
   ngOnInit(): void {
     //04. Load data from URL
-    var url= "http://localhost:8080/customers";
+    var url= "http://localhost:8080/students";
     this.http.get<Student[]>(url)
     .subscribe(data=>{
       this.students= data;

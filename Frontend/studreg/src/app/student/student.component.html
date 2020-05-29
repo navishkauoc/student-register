@@ -22,11 +22,36 @@
                         </div>
                     </div>
                     <div class="box-footer">
-                        <button type="button" class="btn btn-info pull-right" style="margin-right: 10px;">SAVE</button>
-                        <button type="reset" class="btn btn-danger">CANCEL</button>
+                        <button type="button" class="btn btn-success pull-right" style="margin-right: 10px;">SAVE</button>
+                        <button type="reset" class="btn btn-warning">CANCEL</button>
                     </div>
                 </div>
             </form>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="jumbotron">
+            <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>Student ID</th>
+                    <th>Student Name</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Options</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor = "let student of students">
+                    <td> {{ student.id }}</td>
+                    <td> {{ student.name }}</td>
+                    <td> {{ student.age }}</td>
+                    <td> {{ student.gender }}</td>
+                    <td> <button class="btn btn-info" style="margin-right: 10px;"> Edit </button><button class="btn btn-danger"> Delete </button> </td>
+                  </tr>
+                </tbody>
+            </table>
         </div>
     </div>
     
