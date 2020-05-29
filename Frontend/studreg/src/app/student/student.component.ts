@@ -18,7 +18,7 @@ export interface Student{
 })
 export class StudentComponent implements OnInit {
 
-  //a. Create FormControl object per each object
+  //a. Create FormControl object per each input
   name = new FormControl();
   age = new FormControl();
   gender = new FormControl();
@@ -26,6 +26,7 @@ export class StudentComponent implements OnInit {
   //02. Create array variable for all objects
   students: Student[]= [];
 
+  //b. Http Object injection
   //03. Http Object injection
   constructor(private http: HttpClient) { }
 
