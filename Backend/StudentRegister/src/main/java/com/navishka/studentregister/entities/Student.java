@@ -1,9 +1,15 @@
 package com.navishka.studentregister.entities;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Student {
@@ -16,14 +22,27 @@ public class Student {
 	private String gender;
 	private String photo;
 	
+	@OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
+    @JoinColumn(name = "subject_id")
+	private List<Subject> subjects;
+	
 	public Student() {
 	}
 	
-	public Student(String name, double age, String gender, String photo) {
+//	public Student(String name, double age, String gender, String photo) {
+//		this.name = name;
+//		this.age = age;
+//		this.gender = gender;
+//		this.photo = photo;
+//	}
+
+	public Student(String name, double age, String gender, String photo, List<Subject> subjects) {
+		super();
 		this.name = name;
 		this.age = age;
 		this.gender = gender;
 		this.photo = photo;
+		this.subjects = subjects;
 	}
 
 	public long getId() {
@@ -64,6 +83,14 @@ public class Student {
 
 	public void setPhoto(String photo) {
 		this.photo = photo;
+	}
+
+	public List<Subject> getSubjects() {
+		return subjects;
+	}
+
+	public void setSubjects(List<Subject> subjects) {
+		this.subjects = subjects;
 	}
 
 }
