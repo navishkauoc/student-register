@@ -23,7 +23,7 @@ public class Student {
 	private String photo;
 	
 	@OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
-    @JoinColumn(name = "subject_id")
+    @JoinColumn(name = "student_id")
 	private List<Subject> subjects;
 	
 	public Student() {
